@@ -5,6 +5,7 @@
  */
 package config;
 
+import domain.FrameworkBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan("controller")
 public class WebConfig extends WebMvcConfigurerAdapter {
+    
+    @Bean
+    public FrameworkBean getFrameworkBean(){
+        return new FrameworkBean();
+    }
     
     @Bean
     public ViewResolver viewResolver() {
